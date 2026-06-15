@@ -1,0 +1,66 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (never commit real values; keep the template committable)
+.env*
+!.env.example
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# private docs (never commit to a public repo)
+PRD.md
+ARCHITECTURE.md
+TECHNICAL_ARCHITECTURE.md
+ROADMAP.md
+NOTES.md
+TODO.md
+SESSION_NOTES.md
+COWORK.md
+COWORK*.md
+DEMO_SCRIPT.md
+DEVPOST_SUBMISSION.md
+docs/PRD*.md
+docs/ARCHITECTURE*.md
+docs/TECHNICAL_ARCHITECTURE*.md
+docs/ROADMAP*.md
+docs/INTERNAL*.md
+docs/HANDOFF*.md
+docs/ASSUMPTIONS.md
+docs/DEMO*.md
+docs/REHEARSAL*.md
+docs/SUBMISSION*.md
+docs/DEVPOST*.md
