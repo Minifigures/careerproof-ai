@@ -22,3 +22,6 @@ jobs:
       - run: npm run lint
       - run: npx tsc --noEmit
       - run: npm test
+      # next build needs no secrets: every route is dynamic and nothing reads
+      # Supabase or LLM keys at build time.
+      - run: npm run build
