@@ -36,9 +36,9 @@ function openAICompatible(baseUrl: string, apiKey: string | undefined, extra: Re
 
 async function callGemini({ system, prompt, maxTokens, model }: ProviderCall): Promise<string> {
   const key = process.env.GEMINI_API_KEY ?? process.env.GOOGLE_API_KEY;
-  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`, {
+  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", "x-goog-api-key": key ?? "" },
     body: JSON.stringify({
       systemInstruction: { parts: [{ text: system }] },
       contents: [{ role: "user", parts: [{ text: prompt }] }],
