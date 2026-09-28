@@ -242,7 +242,7 @@ export function Workspace() {
               value={education}
               onChange={(event) => setEducation(event.target.value)}
               rows={2}
-              placeholder="University of Toronto Mississauga, BSc Computer Science, 2026"
+              placeholder="University of Example, BSc, 2027"
               className="mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-sm outline-none focus:border-teal-600 focus:ring-1 focus:ring-teal-600"
             />
           </label>
