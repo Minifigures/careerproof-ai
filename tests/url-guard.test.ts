@@ -25,6 +25,7 @@ const blockedIps = [
   "169.254.169.254",
   "169.254.170.2",
   "100.100.100.200",
+  "192.0.0.192",
   "fd00:ec2::254",
   // IPv6 loopback, unspecified, link-local, unique-local
   "::1",
@@ -68,6 +69,7 @@ const publicIps = [
   "100.63.255.255",
   "100.128.0.1",
   "169.253.1.1",
+  "192.0.1.1",
   "192.169.0.1",
   "2606:4700:4700::1111",
   "2001:4860:4860::8888",
@@ -129,6 +131,7 @@ const unsafeUrls = [
   "http://[fd00:ec2::254]/latest/meta-data/",
   "http://169.254.169.254/latest/meta-data/",
   "http://100.100.100.200/",
+  "http://192.0.0.192/latest/meta-data/",
   "http://localhost./",
   "https://intranet.internal/",
   "ftp://example.com/",

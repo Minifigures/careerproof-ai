@@ -3,8 +3,9 @@
 // step that checks every resolved address lives in lib/scrape.ts.
 //
 // Cloud metadata endpoints fall inside the blocked ranges below:
-// 169.254.169.254 and 169.254.170.2 (link-local), 100.100.100.200 (CGNAT) and
-// fd00:ec2::254 (unique-local).
+// 169.254.169.254 and 169.254.170.2 (link-local), 100.100.100.200 (CGNAT),
+// 192.0.0.192 (Oracle Cloud Classic, in 192.0.0.0/24) and fd00:ec2::254
+// (unique-local).
 
 const BLOCKED_HOST_PATTERNS = [
   /^localhost$/i,
@@ -86,7 +87,7 @@ function parseIPv6(input: string): number[] | null {
   return [...all, ...tail];
 }
 
-function isBlockedIPv4([a, b]: number[]): boolean {
+function isBlockedIPv4([a, b, c]: number[]): boolean {
   return (
     a === 0 || // 0.0.0.0/8, "this network"
     a === 10 || // 10/8 private
@@ -94,6 +95,7 @@ function isBlockedIPv4([a, b]: number[]): boolean {
     (a === 100 && b >= 64 && b <= 127) || // 100.64/10 CGNAT
     (a === 169 && b === 254) || // 169.254/16 link-local
     (a === 172 && b >= 16 && b <= 31) || // 172.16/12 private
+    (a === 192 && b === 0 && c === 0) || // 192.0.0.0/24 special-purpose, Oracle metadata 192.0.0.192
     (a === 192 && b === 168) // 192.168/16 private
   );
 }
